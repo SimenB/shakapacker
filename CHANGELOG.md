@@ -11,6 +11,7 @@ _Please add entries here for your pull requests that are not yet released._
 
 ### Added
 - Experimental support for other JS package managers using `package_json` gem [PR 349](https://github.com/shakacode/shakapacker/pull/349) by [G-Rath](https://github.com/g-rath).
+- Use `config/shakapacker.yml` and the secondary source for `asset_host` and `relative_url_root` configurations [PR 376](https://github.com/shakacode/shakapacker/pull/376) by [ahangarha](https://github.com/ahangarha).
 
 ### Fixed
 - Force recompilation of assets on asset host change [PR 364](https://github.com/shakacode/shakapacker/pull/364) by [ahangarha](https://github.com/ahangarha).
