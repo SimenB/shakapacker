@@ -450,7 +450,9 @@ If you want to use live code reloading, or you have enough JavaScript that on-de
 **Note:**
 In digest strategy,
 setting or changing the asset host either through
-`Rails.application.config.asset_host` or `SHAKAPACKER_ASSET_HOST` environment variable,
+`Rails.application.config.asset_host`,
+`asset_host` in `config/shakapacker.yml`,
+or `SHAKAPACKER_ASSET_HOST` environment variable,
 forces the recompilation of assets.
 
 #### Common Development Commands
