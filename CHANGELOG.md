@@ -11,7 +11,9 @@ _Please add entries here for your pull requests that are not yet released._
 
 ### Added
 - Experimental support for other JS package managers using `package_json` gem [PR 349](https://github.com/shakacode/shakapacker/pull/349) by [G-Rath](https://github.com/g-rath).
-- Add a feature to recompile assets on asset host change [PR 364](https://github.com/shakacode/shakapacker/pull/364) by [ahangarha](https://github.com/ahangarha).
+
+### Fixed
+- Force recompilation of assets on asset host change [PR 364](https://github.com/shakacode/shakapacker/pull/364) by [ahangarha](https://github.com/ahangarha).
 
 ## [v7.1.0] - September 30, 2023
 
