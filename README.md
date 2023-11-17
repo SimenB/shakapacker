@@ -426,6 +426,15 @@ The `compile: true` option can be more useful for test and production builds.
 Shakapacker ships with two different strategies that are used to determine whether assets need recompilation per the `compile: true` option:
 
 - `digest` - This strategy calculates SHA1 digest of files in your watched paths (see below). The calculated digest is then stored in a temp file. To check whether the assets need to be recompiled, Shakapacker calculates the SHA1 of the watched files and compares it with the one stored. If the digests are equal, no recompilation occurs. If the digests are different or the temp file is missing, files are recompiled.
+
+  **Note:**
+  In digest strategy,
+  setting or changing the asset host either through
+  `Rails.application.config.asset_host`,
+  `asset_host` in `config/shakapacker.yml`,
+  or `SHAKAPACKER_ASSET_HOST` environment variable,
+  forces the recompilation of assets.
+
 - `mtime` - This strategy looks at the last "modified at" timestamps of both files AND directories in your watched paths. The timestamp of the most recent file or directory is then compared with the timestamp of `manifest.json` file generated. If the manifest file timestamp is newer than one of the most recently modified files or directories in the watched paths, no recompilation occurs. If the manifest file is older, files are recompiled.
 
 The `mtime` strategy is generally faster than the `digest` one, but it requires stable timestamps, this makes it perfect for a development environment, such as needing to rebuild bundles for tests, or if you're not changing frontend assets much.
@@ -446,14 +455,6 @@ For more details see
 [issue 88: Caching issues in Development since migrating to Shakapacker](https://github.com/shakacode/shakapacker/issues/88).
 
 If you want to use live code reloading, or you have enough JavaScript that on-demand compilation is too slow, you'll need to run `./bin/shakapacker-dev-server`. This process will watch for changes in the relevant files, defined by `shakapacker.yml` configuration settings for `source_path`, `source_entry_path`, and `additional_paths`, and it will then automatically reload the browser to match. This feature is also known as [Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/).
-
-**Note:**
-In digest strategy,
-setting or changing the asset host either through
-`Rails.application.config.asset_host`,
-`asset_host` in `config/shakapacker.yml`,
-or `SHAKAPACKER_ASSET_HOST` environment variable,
-forces the recompilation of assets.
 
 #### Common Development Commands
 
